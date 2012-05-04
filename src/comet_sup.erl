@@ -41,7 +41,7 @@ upgrade() ->
 %% @spec init([]) -> SupervisorTree
 %% @doc supervisor callback.
 init([]) ->
-    Web = web_specs(comet_web, 8080),
+    Web = web_specs(),
 	CometSid = comet_sid_specs(),
 	CometAuth = comet_auth_specs(),
 
@@ -51,12 +51,12 @@ init([]) ->
     {ok,
      {Strategy, lists:flatten(Processes)}}.
 
-web_specs(Mod, Port) ->
+web_specs() ->
     WebConfig = [{ip, {0,0,0,0}},
-                 {port, Port},
+                 {port, 80},
                  {docroot, comet_deps:local_path(["priv", "www"])}],
-    {Mod,
-     {Mod, start, [WebConfig]},
+    {comet_web,
+     {comet_web, start, [WebConfig]},
      permanent, 5000, worker, dynamic}.
 
 comet_sid_specs() ->

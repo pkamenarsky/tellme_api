@@ -5,5 +5,7 @@ nohup.out
 deps
 ebin
 .eunit
+rel/tellme_node
+rel/tellme_node/*
 TEST-*.xml
 
