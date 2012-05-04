@@ -1,0 +1,9 @@
+%% -*- erlang -*-
+{application, tellme_api,
+ [{description, "telll.me backend API"},
+  {vsn, "0.1"},
+  {modules, []},
+  {registered, []},
+  {mod, {tellme_api_app, []}},
+  {env, []},
+  {applications, [kernel, stdlib, crypto, sasl]}]}.
