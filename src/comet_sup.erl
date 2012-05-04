@@ -53,7 +53,7 @@ init([]) ->
 
 web_specs() ->
     WebConfig = [{ip, {0,0,0,0}},
-                 {port, 80},
+                 {port, 8080},
                  {docroot, comet_deps:local_path(["priv", "www"])}],
     {comet_web,
      {comet_web, start, [WebConfig]},
